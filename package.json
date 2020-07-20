@@ -39,6 +39,10 @@
   "scripts": {
     "test": "standard && tape test/*.js"
   },
+  "files": [
+    "*.js",
+    "*.d.ts"
+  ],
   "funding": [
     {
       "type": "github",
