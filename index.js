@@ -1,9 +1,11 @@
 /*! queue-microtask. MIT License. Feross Aboukhadijeh <https://feross.org/opensource> */
-let promise
+var promise
 
-module.exports = typeof queueMicrotask === 'function'
+var qm = typeof queueMicrotask == 'function'
   ? queueMicrotask
-  // reuse resolved promise, and allocate it lazily
-  : cb => (promise || (promise = Promise.resolve()))
-    .then(cb)
-    .catch(err => setTimeout(() => { throw err }, 0))
+  : function queueMicrotask(cb) {
+      if (!promise) promise = Promise.resolve()
+      promise.then(cb).catch(e => setTimeout(() => { throw e }, 0))
+    }
+
+module.exports = cb => qm(cb)
