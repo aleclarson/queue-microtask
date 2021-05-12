@@ -1,7 +1,7 @@
 {
   "name": "@alloc/queue-microtask",
   "description": "fast, tiny `queueMicrotask` shim for modern engines",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "author": {
     "name": "Feross Aboukhadijeh",
     "email": "feross@feross.org",
